@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: de601f8a94bd9804fa2bcfc2f2164c3f
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors:
+  - Errors detected in tileset 'CaveG.tsx'. Check the tileset inspector for more
+    details. Your map may be broken until these are fixed.
+  - Could not find tile 368. Make sure the tilesets were successfully imported.
+  - Could not find tile 369. Make sure the tilesets were successfully imported.
+  - Could not find tile 399. Make sure the tilesets were successfully imported.
+  - Could not find tile 400. Make sure the tilesets were successfully imported.
+  - Could not find tile 401. Make sure the tilesets were successfully imported.
+  - Could not find tile 431. Make sure the tilesets were successfully imported.
+  - Could not find tile 432. Make sure the tilesets were successfully imported.
+  - Could not find tile 463. Make sure the tilesets were successfully imported.
+  - Could not find tile 464. Make sure the tilesets were successfully imported.
+  - Could not find tile 154. Make sure the tilesets were successfully imported.
+  - Could not find tile 495. Make sure the tilesets were successfully imported.
+  - Could not find tile 496. Make sure the tilesets were successfully imported.
+  - Could not find tile 497. Make sure the tilesets were successfully imported.
+  - Could not find tile 186. Make sure the tilesets were successfully imported.
+  - Could not find tile 528. Make sure the tilesets were successfully imported.
+  - Could not find tile 529. Make sure the tilesets were successfully imported.
+  - Could not find tile 135. Make sure the tilesets were successfully imported.
+  - Could not find tile 190. Make sure the tilesets were successfully imported.
+  - Could not find tile 191. Make sure the tilesets were successfully imported.
+  - Could not find tile 325. Make sure the tilesets were successfully imported.
+  - Could not find tile 327. Make sure the tilesets were successfully imported.
+  - Could not find tile 329. Make sure the tilesets were successfully imported.
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 26
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  tilesAsObjects: 0
+  sortingMode: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []
