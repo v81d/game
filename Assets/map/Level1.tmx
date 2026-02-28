@@ -3,17 +3,32 @@
  <tileset firstgid="1" source="CaveG.tsx"/>
  <imagelayer id="9" name="Image Layer 4" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave4.png" width="1152" height="640"/>
+  <properties>
+   <property name="unity:sortingLayer" value="Background"/>
+  </properties>
  </imagelayer>
  <imagelayer id="8" name="Image Layer 3" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave3.png" width="1152" height="1088"/>
+  <properties>
+   <property name="unity:sortingLayer" value="Background"/>
+  </properties>
  </imagelayer>
  <imagelayer id="7" name="Image Layer 2" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave2.png" width="1152" height="1088"/>
+  <properties>
+   <property name="unity:sortingLayer" value="Background"/>
+  </properties>
  </imagelayer>
  <imagelayer id="6" name="Image Layer 1" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave1.png" width="1152" height="1088"/>
+  <properties>
+   <property name="unity:sortingLayer" value="Background"/>
+  </properties>
  </imagelayer>
  <layer id="1" name="Tile Layer 1" width="100" height="34">
+  <properties>
+   <property name="unity:sortingLayer" value="Ground"/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
