@@ -1,0 +1,35 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "CaveG.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 350,
+                "y": 327
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/Albert/Downloads/Cave Tileset Pack/PNG files",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "map.tmx",
+        "CaveG.tsx"
+    ],
+    "project": "Campfire game map.tiled-project",
+    "recentFiles": [
+        "CaveG.tsx",
+        "map.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}
