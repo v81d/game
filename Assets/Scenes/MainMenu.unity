@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 164801855}
   - component: {fileID: 164801857}
   - component: {fileID: 164801856}
+  - component: {fileID: 164801858}
   m_Layer: 5
   m_Name: Background Layer 2
   m_TagString: Untagged
@@ -194,6 +195,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164801854}
   m_CullTransparentMesh: 1
+--- !u!114 &164801858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164801854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be02ae9b823c6684e9fb55f38c1e09be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxScrolling
+  scrollSpeed: 80
 --- !u!1 &194422823
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +219,7 @@ GameObject:
   - component: {fileID: 194422824}
   - component: {fileID: 194422826}
   - component: {fileID: 194422825}
+  - component: {fileID: 194422827}
   m_Layer: 5
   m_Name: Background Layer 1
   m_TagString: Untagged
@@ -269,6 +284,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194422823}
   m_CullTransparentMesh: 1
+--- !u!114 &194422827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194422823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be02ae9b823c6684e9fb55f38c1e09be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxScrolling
+  scrollSpeed: 100
 --- !u!1 &217892591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1458,7 @@ GameObject:
   - component: {fileID: 1955795882}
   - component: {fileID: 1955795884}
   - component: {fileID: 1955795883}
+  - component: {fileID: 1955795885}
   m_Layer: 5
   m_Name: Background Layer 3
   m_TagString: Untagged
@@ -1494,6 +1523,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955795881}
   m_CullTransparentMesh: 1
+--- !u!114 &1955795885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955795881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be02ae9b823c6684e9fb55f38c1e09be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxScrolling
+  scrollSpeed: 60
 --- !u!1 &2025328043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1547,7 @@ GameObject:
   - component: {fileID: 2025328044}
   - component: {fileID: 2025328046}
   - component: {fileID: 2025328045}
+  - component: {fileID: 2025328047}
   m_Layer: 5
   m_Name: Background Layer 4
   m_TagString: Untagged
@@ -1569,6 +1612,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025328043}
   m_CullTransparentMesh: 1
+--- !u!114 &2025328047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025328043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be02ae9b823c6684e9fb55f38c1e09be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxScrolling
+  scrollSpeed: 40
 --- !u!1 &2087781549
 GameObject:
   m_ObjectHideFlags: 0
