@@ -21,6 +21,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float wallJumpForceY = 12f;
     [SerializeField] private float wallJumpLockTime = 0.2f;
 
+    [Header("Dash")]
+    [SerializeField] private float dashSpeed = 18f;
+    [SerializeField] private float dashDuration = 0.15f;
+    [SerializeField] private float dashCooldown = 0.6f;
+
     private Animator animator;
     private Rigidbody2D rb;
     private Collider2D col;
@@ -31,6 +36,10 @@ public class CharacterMovement : MonoBehaviour
     private bool isWallSliding;
     private int wallDirection; // -1 = wall on left, 1 = wall on right
     private float wallJumpLockTimer;
+    private bool isDashing;
+    private float dashTimer;
+    private float dashCooldownTimer;
+    private Vector2 dashDirection;
 
     private void Awake()
     {
@@ -54,17 +63,6 @@ public class CharacterMovement : MonoBehaviour
             if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
             {
                 moveInputX += 1f;
-            }
-        }
-
-        if (Gamepad.current != null)
-        {
-            moveInputX += Gamepad.current.leftStick.x.ReadValue();
-            moveInputX += Gamepad.current.dpad.x.ReadValue();
-
-            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-            {
-                jumpQueued = true;
             }
         }
 
@@ -100,12 +98,20 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Tick dash cooldown
+        if (dashCooldownTimer > 0f)
+            dashCooldownTimer -= Time.fixedDeltaTime;
+
         bool isGrounded = Physics2D.Raycast(
             col.bounds.center,
             Vector2.down,
             col.bounds.extents.y + groundCheckDistance,
             groundLayer
         );
+
+        // Reset dash availability when landing
+        if (isGrounded && !isDashing)
+            dashCooldownTimer = 0f;
 
         // Wall detection
         bool touchingRight = CheckWall(Vector2.right);
@@ -177,6 +183,31 @@ public class CharacterMovement : MonoBehaviour
                 velocity.y = wallJumpForceY;
                 wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
+            }
+            else if (!isGrounded && !isDashing && dashCooldownTimer <= 0f)
+            {
+                // Mid-air dash in facing direction
+                isDashing = true;
+                dashTimer = dashDuration;
+                dashDirection = new Vector2(lastDirection, 0f);
+                rb.gravityScale = 0f;
+            }
+        }
+
+        if (isDashing)
+        {
+            dashTimer -= Time.fixedDeltaTime;
+            if (dashTimer <= 0f)
+            {
+                // End dash
+                isDashing = false;
+                dashCooldownTimer = dashCooldown;
+                rb.gravityScale = gravityScale;
+                velocity = new Vector2(moveInputX * moveSpeed, 0f); // gentle exit, no leftover vertical speed
+            }
+            else
+            {
+                velocity = dashDirection * dashSpeed;
             }
         }
 
