@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     [Header("Settings")]
-    [SerializeField] private float typingSpeed = 0.03f;
+    [SerializeField] private float typingSpeed = 0.05f;
 
     private TMP_Text dialogueText;
     private string[] currentLines;
