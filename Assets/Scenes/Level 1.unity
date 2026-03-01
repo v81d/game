@@ -421,12 +421,20 @@ PrefabInstance:
       value: CollisionTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.9187634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 14.5308
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.5
+      value: -19.9897
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.z
