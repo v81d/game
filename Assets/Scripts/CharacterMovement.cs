@@ -74,10 +74,8 @@ public class CharacterMovement : MonoBehaviour
         moveInputX = Mathf.Clamp(moveInputX, -1f, 1f);
     }
 
-    /// <summary>
-    /// Casts a box sideways from the collider edge to detect walls.
-    /// Uses three raycasts (top, center, bottom) for reliability with tilemap composite colliders.
-    /// </summary>
+    // Casts a box sideways from the collider edge to detect walls.
+    // Uses three raycasts (top, center, bottom) for reliability with tilemap composite colliders.
     private bool CheckWall(Vector2 direction)
     {
         Bounds bounds = col.bounds;
@@ -119,7 +117,7 @@ public class CharacterMovement : MonoBehaviour
         isTouchingWall = touchingRight || touchingLeft;
         wallDirection = touchingRight ? 1 : (touchingLeft ? -1 : 0);
 
-        // Wall sliding: touching wall, not grounded, moving into wall, and not mid-wall-jump
+        // Touching wall, not grounded, moving into wall, and not mid-wall-jump
         bool pushingIntoWall = (moveInputX > 0.1f && wallDirection == 1)
                             || (moveInputX < -0.1f && wallDirection == -1);
         isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall && wallJumpLockTimer <= 0f;
@@ -130,7 +128,7 @@ public class CharacterMovement : MonoBehaviour
             wallJumpLockTimer -= Time.fixedDeltaTime;
         }
 
-        // Horizontal velocity: ignore input briefly after a wall jump so the player launches away
+        // Ignore input briefly after a wall jump so the player launches away
         float horizontalVelocity;
         if (wallJumpLockTimer > 0f)
         {
@@ -152,7 +150,7 @@ public class CharacterMovement : MonoBehaviour
             lastDirection = -1f;
         }
 
-        // Wall sliding: reduce gravity and clamp fall speed so the player slides slowly
+        // Reduce gravity and clamp fall speed so the player slides slowly
         if (isWallSliding)
         {
             rb.gravityScale = 0f;
@@ -178,7 +176,7 @@ public class CharacterMovement : MonoBehaviour
             }
             else if (isTouchingWall && !isGrounded)
             {
-                // Wall jump: push away from wall and upward
+                // Push away from wall and upward
                 velocity.x = -wallDirection * wallJumpForceX;
                 velocity.y = wallJumpForceY;
                 wallJumpLockTimer = wallJumpLockTime;
@@ -191,6 +189,7 @@ public class CharacterMovement : MonoBehaviour
                 dashTimer = dashDuration;
                 dashDirection = new Vector2(lastDirection, 0f);
                 rb.gravityScale = 0f;
+                animator.SetTrigger("Dash");
             }
         }
 
@@ -203,7 +202,7 @@ public class CharacterMovement : MonoBehaviour
                 isDashing = false;
                 dashCooldownTimer = dashCooldown;
                 rb.gravityScale = gravityScale;
-                velocity = new Vector2(moveInputX * moveSpeed, 0f); // gentle exit, no leftover vertical speed
+                velocity = new Vector2(moveInputX * moveSpeed, 0f); // gentle exit
             }
             else
             {

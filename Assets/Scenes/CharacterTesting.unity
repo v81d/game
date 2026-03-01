@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &504376918 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 828829304666813522, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
-  m_PrefabInstance: {fileID: 8889846257985101042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826378362
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 2674352707168095488, guid: d23c6e1761ccbc98295572b2b5a40725, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 504376918}
+      objectReference: {fileID: 8889846257985101043}
     - target: {fileID: 3130703107716077024, guid: d23c6e1761ccbc98295572b2b5a40725, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -459,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 4852249997709725906, guid: d23c6e1761ccbc98295572b2b5a40725, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 504376918}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -541,6 +536,14 @@ PrefabInstance:
       propertyPath: wallCheckDistance
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6415291770575799029, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415291770575799029, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.68
+      objectReference: {fileID: 0}
     - target: {fileID: 7748638371747790165, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
       propertyPath: m_Name
       value: Character
@@ -550,6 +553,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+--- !u!4 &8889846257985101043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6415291770575799029, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+  m_PrefabInstance: {fileID: 8889846257985101042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
