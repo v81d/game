@@ -785,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 9131125703765248082, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3355,6 +3359,83 @@ MonoBehaviour:
   m_TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_Visible: 1
   m_ImageFilename: ../Sprites/CaveSprites/ParallaxCave3.png
+--- !u!1001 &1878232966
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: 'dialogueLines.Array.data[0]'
+      value: Your friends are gone up there, is there a point in going further?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: 'dialogueLines.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182984549619236478, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_Name
+      value: CollisionTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0913758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0912495
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.5311
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21.9814
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
 --- !u!1001 &1914925039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,17 +3444,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: 'dialogueLines.Array.data[0]'
+      value: The caves are getting noticeably deeper...
+      objectReference: {fileID: 0}
     - target: {fileID: 5182984549619236478, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_Name
       value: CollisionTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.931933
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0315607
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: 25.0136
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.5
+      value: -22.0114
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3592,6 +3689,7 @@ SceneRoots:
   - {fileID: 5957479328956204810}
   - {fileID: 673485300289992898}
   - {fileID: 1914925039}
+  - {fileID: 1878232966}
   - {fileID: 670728537}
   - {fileID: 682164483}
   - {fileID: 1255124257}
