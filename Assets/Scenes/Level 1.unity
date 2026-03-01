@@ -2106,6 +2106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2065334452124912798, guid: 5ddff7516bc854834adae2785134c8f3, type: 3}
+      propertyPath: typingSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3613174443444895599, guid: 5ddff7516bc854834adae2785134c8f3, type: 3}
       propertyPath: m_Name
       value: GUI
