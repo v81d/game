@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SmoothCamera
   offset: {x: 0, y: 0, z: 0}
-  damping: 0.35
+  damping: 0.25
   target: {fileID: 0}
 --- !u!114 &5650315730072872601
 MonoBehaviour:
