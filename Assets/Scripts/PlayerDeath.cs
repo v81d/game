@@ -6,9 +6,11 @@ public class PlayerDeath : MonoBehaviour
     [Tooltip("Objects on this layer will kill the player on contact.")]
     [SerializeField] private LayerMask deathLayer;
 
+    private bool isDead;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (IsInDeathLayer(other.gameObject))
+        if (!isDead && IsInDeathLayer(other.gameObject))
         {
             Die();
         }
@@ -16,7 +18,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (IsInDeathLayer(collision.gameObject))
+        if (!isDead && IsInDeathLayer(collision.gameObject))
         {
             Die();
         }
@@ -30,6 +32,20 @@ public class PlayerDeath : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
+
+        // Freeze the character by disabling movement and stopping physics
+        var movement = GetComponent<CharacterMovement>();
+        if (movement != null)
+            movement.enabled = false;
+
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+        }
+
         // Fade to black, then reload the current scene so the player respawns
         string currentSceneName = SceneManager.GetActiveScene().name;
 
