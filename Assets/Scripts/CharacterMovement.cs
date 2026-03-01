@@ -5,11 +5,21 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider2D))]
 public class CharacterMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float gravityScale = 3f;
+
+    [Header("Jumping")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckDistance = 0.1f;
+
+    [Header("Wall Jump")]
+    [SerializeField] private float wallCheckDistance = 0.3f;
+    [SerializeField] private float wallSlideSpeed = 2f;
+    [SerializeField] private float wallJumpForceX = 8f;
+    [SerializeField] private float wallJumpForceY = 12f;
+    [SerializeField] private float wallJumpLockTime = 0.2f;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -17,6 +27,10 @@ public class CharacterMovement : MonoBehaviour
     private float moveInputX;
     private float lastDirection = 1f;
     private bool jumpQueued;
+    private bool isTouchingWall;
+    private bool isWallSliding;
+    private int wallDirection; // -1 = wall on left, 1 = wall on right
+    private float wallJumpLockTimer;
 
     private void Awake()
     {
@@ -60,12 +74,28 @@ public class CharacterMovement : MonoBehaviour
         }
 
         moveInputX = Mathf.Clamp(moveInputX, -1f, 1f);
+    }
 
-        if (jumpQueued && Physics2D.Raycast(col.bounds.center, Vector2.down,
-            col.bounds.extents.y + groundCheckDistance, groundLayer))
-        {
-            animator.SetTrigger("Jump");
-        }
+    /// <summary>
+    /// Casts a box sideways from the collider edge to detect walls.
+    /// Uses three raycasts (top, center, bottom) for reliability with tilemap composite colliders.
+    /// </summary>
+    private bool CheckWall(Vector2 direction)
+    {
+        Bounds bounds = col.bounds;
+        float castDist = wallCheckDistance;
+
+        // Cast three horizontal rays: top, center, bottom of the collider (inset slightly)
+        float inset = bounds.extents.y * 0.1f;
+        Vector2 top    = new Vector2(bounds.center.x, bounds.max.y - inset);
+        Vector2 center = new Vector2(bounds.center.x, bounds.center.y);
+        Vector2 bottom = new Vector2(bounds.center.x, bounds.min.y + inset);
+
+        float dist = bounds.extents.x + castDist;
+
+        return Physics2D.Raycast(top, direction, dist, groundLayer)
+            || Physics2D.Raycast(center, direction, dist, groundLayer)
+            || Physics2D.Raycast(bottom, direction, dist, groundLayer);
     }
 
     private void FixedUpdate()
@@ -77,7 +107,35 @@ public class CharacterMovement : MonoBehaviour
             groundLayer
         );
 
-        Vector2 velocity = new Vector2(moveInputX * moveSpeed, rb.linearVelocity.y);
+        // Wall detection
+        bool touchingRight = CheckWall(Vector2.right);
+        bool touchingLeft  = CheckWall(Vector2.left);
+        isTouchingWall = touchingRight || touchingLeft;
+        wallDirection = touchingRight ? 1 : (touchingLeft ? -1 : 0);
+
+        // Wall sliding: touching wall, not grounded, and moving into the wall
+        bool pushingIntoWall = (moveInputX > 0.1f && wallDirection == 1)
+                            || (moveInputX < -0.1f && wallDirection == -1);
+        isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall;
+
+        // Tick down the wall-jump input lock timer
+        if (wallJumpLockTimer > 0f)
+        {
+            wallJumpLockTimer -= Time.fixedDeltaTime;
+        }
+
+        // Horizontal velocity: ignore input briefly after a wall jump so the player launches away
+        float horizontalVelocity;
+        if (wallJumpLockTimer > 0f)
+        {
+            horizontalVelocity = rb.linearVelocity.x;
+        }
+        else
+        {
+            horizontalVelocity = moveInputX * moveSpeed;
+        }
+
+        Vector2 velocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
 
         if (moveInputX > 0)
         {
@@ -88,14 +146,33 @@ public class CharacterMovement : MonoBehaviour
             lastDirection = -1f;
         }
 
+        // Cap fall speed while wall sliding
+        if (isWallSliding)
+        {
+            velocity.y = Mathf.Max(velocity.y, -wallSlideSpeed);
+        }
+
         animator.SetFloat("Speed", Mathf.Abs(moveInputX));
         animator.SetFloat("Direction", lastDirection);
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetFloat("YVelocity", rb.linearVelocity.y);
 
-        if (jumpQueued && isGrounded)
+        if (jumpQueued)
         {
-            velocity.y = jumpForce;
+            if (isGrounded)
+            {
+                // Normal ground jump
+                velocity.y = jumpForce;
+                animator.SetTrigger("Jump");
+            }
+            else if (isTouchingWall && !isGrounded)
+            {
+                // Wall jump: push away from wall and upward
+                velocity.x = -wallDirection * wallJumpForceX;
+                velocity.y = wallJumpForceY;
+                wallJumpLockTimer = wallJumpLockTime;
+                animator.SetTrigger("Jump");
+            }
         }
 
         jumpQueued = false;
