@@ -993,7 +993,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3613174443444895599, guid: 5ddff7516bc854834adae2785134c8f3, type: 3}
       propertyPath: m_Name
-      value: DialogueContainer
+      value: GUI
       objectReference: {fileID: 0}
     - target: {fileID: 5591330738554247734, guid: 5ddff7516bc854834adae2785134c8f3, type: 3}
       propertyPath: m_Pivot.x

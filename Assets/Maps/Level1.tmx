@@ -7,19 +7,19 @@
    <property name="unity:sortingLayer" value="Background"/>
   </properties>
  </imagelayer>
- <imagelayer id="8" name="Image Layer 3" visible="0" repeatx="1" repeaty="1">
+ <imagelayer id="8" name="Image Layer 3" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave3.png" width="1152" height="1088"/>
   <properties>
    <property name="unity:sortingLayer" value="Background"/>
   </properties>
  </imagelayer>
- <imagelayer id="7" name="Image Layer 2" visible="0" repeatx="1" repeaty="1">
+ <imagelayer id="7" name="Image Layer 2" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave2.png" width="1152" height="1088"/>
   <properties>
    <property name="unity:sortingLayer" value="Background"/>
   </properties>
  </imagelayer>
- <imagelayer id="6" name="Image Layer 1" visible="0" repeatx="1" repeaty="1">
+ <imagelayer id="6" name="Image Layer 1" repeatx="1" repeaty="1">
   <image source="../Sprites/CaveSprites/ParallaxCave1.png" width="1152" height="1088"/>
   <properties>
    <property name="unity:sortingLayer" value="Background"/>
