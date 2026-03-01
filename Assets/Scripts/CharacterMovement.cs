@@ -113,10 +113,10 @@ public class CharacterMovement : MonoBehaviour
         isTouchingWall = touchingRight || touchingLeft;
         wallDirection = touchingRight ? 1 : (touchingLeft ? -1 : 0);
 
-        // Wall sliding: touching wall, not grounded, and moving into the wall
+        // Wall sliding: touching wall, not grounded, moving into wall, and not mid-wall-jump
         bool pushingIntoWall = (moveInputX > 0.1f && wallDirection == 1)
                             || (moveInputX < -0.1f && wallDirection == -1);
-        isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall;
+        isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall && wallJumpLockTimer <= 0f;
 
         // Tick down the wall-jump input lock timer
         if (wallJumpLockTimer > 0f)
@@ -146,10 +146,15 @@ public class CharacterMovement : MonoBehaviour
             lastDirection = -1f;
         }
 
-        // Cap fall speed while wall sliding
+        // Wall sliding: reduce gravity and clamp fall speed so the player slides slowly
         if (isWallSliding)
         {
-            velocity.y = Mathf.Max(velocity.y, -wallSlideSpeed);
+            rb.gravityScale = 0f;
+            velocity.y = -wallSlideSpeed;
+        }
+        else
+        {
+            rb.gravityScale = gravityScale;
         }
 
         animator.SetFloat("Speed", Mathf.Abs(moveInputX));
