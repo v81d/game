@@ -57,17 +57,6 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        if (Gamepad.current != null)
-        {
-            moveInputX += Gamepad.current.leftStick.x.ReadValue();
-            moveInputX += Gamepad.current.dpad.x.ReadValue();
-
-            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-            {
-                jumpQueued = true;
-            }
-        }
-
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             jumpQueued = true;
