@@ -180,7 +180,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckDistance: 0.1
   wallCheckDistance: 0.3
-  wallSlideSpeed: 3
+  wallSlideSpeed: 3.5
   wallJumpForceX: 4
   wallJumpForceY: 10
   wallJumpLockTime: 0.2

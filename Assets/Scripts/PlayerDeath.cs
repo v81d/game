@@ -1,12 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerDeath : MonoBehaviour
 {
     [Tooltip("Objects on this layer will kill the player on contact.")]
     [SerializeField] private LayerMask deathLayer;
+    [SerializeField] private float deathDelay = 1f;
 
+    private Animator animator;
     private bool isDead;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void FixedUpdate()
+    {
+        animator.SetBool("IsDead", isDead);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,6 +45,8 @@ public class PlayerDeath : MonoBehaviour
 
     private void Die()
     {
+        if (isDead) return;
+
         isDead = true;
 
         // Freeze the character by disabling movement and stopping physics
@@ -46,7 +61,15 @@ public class PlayerDeath : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Static;
         }
 
-        // Fade to black, then reload the current scene so the player respawns
+        animator.SetTrigger("Die");
+
+        StartCoroutine(ReloadScene());
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(deathDelay);
+
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         if (ScreenFader.Instance != null)
@@ -55,7 +78,6 @@ public class PlayerDeath : MonoBehaviour
         }
         else
         {
-            // Fallback if no ScreenFader exists in the scene
             SceneManager.LoadScene(currentSceneName);
         }
     }
