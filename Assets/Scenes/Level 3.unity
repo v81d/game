@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0587afadfa5653b4c8663b0a8c43199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  sceneName: Level 2
+  sceneName: EndScene
 --- !u!4 &4055503
 Transform:
   m_ObjectHideFlags: 0
@@ -741,7 +741,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23c6e1761ccbc98295572b2b5a40725, type: 3}
---- !u!1001 &349758756
+--- !u!1001 &339246945
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -783,19 +783,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.197
-      objectReference: {fileID: 0}
-    - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3324
+      value: 9.0471945
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.03
+      value: 92.4764
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.8
+      value: -24.71
       objectReference: {fileID: 0}
     - target: {fileID: 5194450905127627994, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6818,7 +6814,7 @@ SceneRoots:
   - {fileID: 471976032}
   - {fileID: 1408840658}
   - {fileID: 230604082}
-  - {fileID: 349758756}
   - {fileID: 1579549659}
   - {fileID: 1222111746}
   - {fileID: 545475872}
+  - {fileID: 339246945}
