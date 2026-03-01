@@ -186,7 +186,7 @@ MonoBehaviour:
   wallJumpLockTime: 0.2
   dashSpeed: 18
   dashDuration: 0.15
-  dashCooldown: 0.6
+  dashCooldown: 3
 --- !u!95 &1900083835764998174
 Animator:
   serializedVersion: 7
@@ -224,3 +224,4 @@ MonoBehaviour:
   deathLayer:
     serializedVersion: 2
     m_Bits: 64
+  deathDelay: 1
