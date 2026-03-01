@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5194450905127627994}
   - component: {fileID: 96364517430018782}
   - component: {fileID: 4730262690902314910}
-  - component: {fileID: 2078222926890702442}
+  - component: {fileID: 1317100978998197740}
   m_Layer: 0
   m_Name: CollisionTrigger
   m_TagString: Untagged
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2078222926890702442
+--- !u!114 &1317100978998197740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,11 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5182984549619236478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1abfa6f698a4cf895918652525a8fb, type: 3}
+  m_Script: {fileID: 11500000, guid: af2a40f3c6a004c9dae85a6b324b8b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
   targetTag: Player
-  speakerName: NPC
   dialogueLines: []
   onTriggerEnter:
     m_PersistentCalls:

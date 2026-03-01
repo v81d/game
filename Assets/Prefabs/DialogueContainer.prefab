@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4941174824895573765}
   - component: {fileID: 1725611047398875572}
   - component: {fileID: 924098241670127660}
+  - component: {fileID: 2065334452124912798}
   m_Layer: 5
   m_Name: DialogueContainer
   m_TagString: Untagged
@@ -142,6 +143,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2065334452124912798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613174443444895599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ebe1e28b159452fa3ac268d98920b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  typingSpeed: 0.03
 --- !u!1 &7777370715737941821
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,8 +223,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter subtitle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 244672e8e62b245f89931520af123e4a, type: 2}
-  m_sharedMaterial: {fileID: 555689408733138910, guid: 244672e8e62b245f89931520af123e4a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcaa6d0477fa14e2d8879867ccede466, type: 2}
+  m_sharedMaterial: {fileID: -3161873918495329115, guid: bcaa6d0477fa14e2d8879867ccede466, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
