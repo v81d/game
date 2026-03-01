@@ -1,0 +1,402 @@
+fileFormatVersion: 2
+guid: dabd1b57f92b1f08d925e476f2e3afd3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -41464214739205258
+    second: dash-large_0
+  - first:
+      213: 9063002809663671841
+    second: dash-large_1
+  - first:
+      213: -6035605539426634297
+    second: dash-large_2
+  - first:
+      213: 5726754477942876110
+    second: dash-large_3
+  - first:
+      213: 7139615136582350023
+    second: dash-large_4
+  - first:
+      213: 4472743936241576920
+    second: dash-large_5
+  - first:
+      213: -8238729962368785212
+    second: dash-large_6
+  - first:
+      213: -7168031769470858584
+    second: dash-large_7
+  - first:
+      213: 3570003315811201374
+    second: dash-large_8
+  - first:
+      213: -7278831855655250573
+    second: dash-large_9
+  - first:
+      213: -983878558432815119
+    second: dash-large_10
+  - first:
+      213: 2416404349464729651
+    second: dash-large_11
+  - first:
+      213: 5851656306011703893
+    second: dash-large_12
+  - first:
+      213: -1173635707195995564
+    second: dash-large_13
+  - first:
+      213: 895491928415156564
+    second: dash-large_14
+  - first:
+      213: 3871727435117499240
+    second: dash-large_15
+  - first:
+      213: -5057072736179739976
+    second: dash-large_16
+  - first:
+      213: -8777568086040775463
+    second: dash-large_17
+  - first:
+      213: 6174722297279974090
+    second: dash-large_18
+  - first:
+      213: 8666780211247690913
+    second: dash-large_19
+  - first:
+      213: 6467928628623842544
+    second: dash-large_20
+  - first:
+      213: -200942405391573752
+    second: dash-large_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DashLargeRightForward
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5781a6db83d3ca0800000000000000
+      internalID: -6035605539426634297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeRightPrepare
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0237274617b6a1d9cc8d80db2c7a63
+      internalID: 1442188060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeRightShrink
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a33f05b8b8ee61496e28a2e026e1ac
+      internalID: 1519618843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeRightEnd
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 32
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50177f303201721659eeeac5c19f9956
+      internalID: -868698177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeLeftPrepare
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02850b6f9a27b05b5b4710499acd9268
+      internalID: -2124970007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeLeftForward
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415ec22f2cf5c5c10a62563813e616b4
+      internalID: -1114668057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeLeftShrink
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0620fedf50dca02c84a05a8193400ac
+      internalID: 1331691006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashLargeLeftEnd
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637dc4f70bd549215aec4bd8b08684c7
+      internalID: -1436110980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3bd9b627eede590b4bcba376faae2eb8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DashLargeLeftEnd: -1436110980
+      DashLargeLeftForward: -1114668057
+      DashLargeLeftPrepare: -2124970007
+      DashLargeLeftShrink: 1331691006
+      DashLargeRightEnd: -868698177
+      DashLargeRightForward: -6035605539426634297
+      DashLargeRightPrepare: 1442188060
+      DashLargeRightShrink: 1519618843
+      DashLarge_1: -2142171280
+      dash-large_0: -41464214739205258
+      dash-large_1: 9063002809663671841
+      dash-large_10: -983878558432815119
+      dash-large_11: 2416404349464729651
+      dash-large_12: 5851656306011703893
+      dash-large_13: -1173635707195995564
+      dash-large_14: 895491928415156564
+      dash-large_15: 3871727435117499240
+      dash-large_16: -5057072736179739976
+      dash-large_17: -8777568086040775463
+      dash-large_18: 6174722297279974090
+      dash-large_19: 8666780211247690913
+      dash-large_20: 6467928628623842544
+      dash-large_21: -200942405391573752
+      dash-large_3: 5726754477942876110
+      dash-large_4: 7139615136582350023
+      dash-large_5: 4472743936241576920
+      dash-large_6: -8238729962368785212
+      dash-large_7: -7168031769470858584
+      dash-large_8: 3570003315811201374
+      dash-large_9: -7278831855655250573
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
