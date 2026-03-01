@@ -11,13 +11,16 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckDistance = 0.1f;
 
+    private Animator animator;
     private Rigidbody2D rb;
     private Collider2D col;
+    private float lastDirection = 1f;
     private float moveInputX;
     private bool jumpQueued;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         rb.gravityScale = gravityScale;
@@ -57,6 +60,13 @@ public class CharacterMovement : MonoBehaviour
         }
 
         moveInputX = Mathf.Clamp(moveInputX, -1f, 1f);
+
+        if (jumpQueued && Physics2D.Raycast(col.bounds.center, Vector2.down,
+            col.bounds.extents.y + groundCheckDistance, groundLayer))
+        {
+            animator.SetTrigger("Jump");
+            jumpQueued = false;
+        }
     }
 
     private void FixedUpdate()
@@ -70,10 +80,19 @@ public class CharacterMovement : MonoBehaviour
 
         Vector2 velocity = new Vector2(moveInputX * moveSpeed, rb.linearVelocity.y);
 
-        if (jumpQueued && isGrounded)
+        if (moveInputX > 0)
         {
-            velocity.y = jumpForce;
+            lastDirection = 1f;
         }
+        else if (moveInputX < 0)
+        {
+            lastDirection = -1f;
+        }
+
+        animator.SetFloat("Speed", Mathf.Abs(moveInputX));
+        animator.SetFloat("Direction", lastDirection);
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat("YVelocity", rb.linearVelocity.y);
 
         jumpQueued = false;
         rb.linearVelocity = velocity;
