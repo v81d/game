@@ -14,8 +14,8 @@ public class CharacterMovement : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private Collider2D col;
-    private float lastDirection = 1f;
     private float moveInputX;
+    private float lastDirection = 1f;
     private bool jumpQueued;
 
     private void Awake()
@@ -65,7 +65,6 @@ public class CharacterMovement : MonoBehaviour
             col.bounds.extents.y + groundCheckDistance, groundLayer))
         {
             animator.SetTrigger("Jump");
-            jumpQueued = false;
         }
     }
 
@@ -93,6 +92,11 @@ public class CharacterMovement : MonoBehaviour
         animator.SetFloat("Direction", lastDirection);
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetFloat("YVelocity", rb.linearVelocity.y);
+
+        if (jumpQueued && isGrounded)
+        {
+            velocity.y = jumpForce;
+        }
 
         jumpQueued = false;
         rb.linearVelocity = velocity;
