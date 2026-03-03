@@ -28,8 +28,8 @@ public class ParallaxEffect : MonoBehaviour
 
         Vector2 targetPosition = startPosition + new Vector2(offsetX * offsetMultiplier, offsetY * offsetMultiplier);
 
-        float halfWidth = rectTransform.rect.width / 2f;
-        float halfHeight = rectTransform.rect.height / 2f;
+        float halfWidth = rectTransform.rect.width * rectTransform.lossyScale.x / 2f;
+        float halfHeight = rectTransform.rect.height * rectTransform.lossyScale.y / 2f;
 
         // Clamp to stop image from escaping view
         float clampX = Mathf.Max(halfWidth - Screen.width / 2f, 0);
