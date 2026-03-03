@@ -1549,7 +1549,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292267713
   m_fontColor: {r: 0.75645244, g: 0.80608624, b: 0.8396226, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
