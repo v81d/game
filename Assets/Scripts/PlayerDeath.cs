@@ -4,7 +4,6 @@ using System.Collections;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [Tooltip("Objects on this layer will kill the player on contact.")]
     [SerializeField] private LayerMask deathLayer;
     [SerializeField] private float deathDelay = 1f;
 
@@ -24,17 +23,13 @@ public class PlayerDeath : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isDead && IsInDeathLayer(other.gameObject))
-        {
             Die();
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isDead && IsInDeathLayer(collision.gameObject))
-        {
             Die();
-        }
     }
 
     private bool IsInDeathLayer(GameObject obj)
@@ -73,12 +68,8 @@ public class PlayerDeath : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         if (ScreenFader.Instance != null)
-        {
             ScreenFader.Instance.FadeToScene(currentSceneName);
-        }
         else
-        {
             SceneManager.LoadScene(currentSceneName);
-        }
     }
 }

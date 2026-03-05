@@ -5,7 +5,6 @@ public class TriggerScript : MonoBehaviour
 {
     [SerializeField] private string targetTag = "Player";
 
-    [Header("Dialogue")]
     [TextArea]
     [SerializeField] private string[] dialogueLines;
 
@@ -17,9 +16,7 @@ public class TriggerScript : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             if (dialogueLines != null && dialogueLines.Length > 0)
-            {
                 DialogueManager.Instance.StartDialogue(dialogueLines);
-            }
 
             onTriggerEnter?.Invoke();
         }
@@ -28,8 +25,6 @@ public class TriggerScript : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(targetTag))
-        {
             onTriggerExit?.Invoke();
-        }
     }
 }

@@ -7,10 +7,10 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [Header("Settings")]
     [SerializeField] private float typingSpeed = 0.05f;
 
     private TMP_Text dialogueText;
+
     private string[] currentLines;
     private int currentLineIndex;
     private bool isTyping;
@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string[] lines)
     {
+        // TODO: allow replacing last dialogue
         if (isDialogueActive) return;
 
         currentLines = lines;
@@ -50,14 +51,8 @@ public class DialogueManager : MonoBehaviour
 
         if (advancePressed)
         {
-            if (isTyping)
-            {
-                FinishTyping();
-            }
-            else
-            {
-                AdvanceLine();
-            }
+            if (isTyping) FinishTyping();
+            else AdvanceLine();
         }
     }
 
@@ -97,13 +92,8 @@ public class DialogueManager : MonoBehaviour
         currentLineIndex++;
 
         if (currentLineIndex < currentLines.Length)
-        {
             ShowCurrentLine();
-        }
-        else
-        {
-            EndDialogue();
-        }
+        else EndDialogue();
     }
 
     private void EndDialogue()
