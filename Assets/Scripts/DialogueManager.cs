@@ -33,9 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string[] lines)
     {
-        // TODO: allow replacing last dialogue
-        if (isDialogueActive)
-            return;
+        isDialogueActive = false;
 
         currentLines = lines;
         currentLineIndex = 0;
