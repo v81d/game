@@ -1,11 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [SerializeField] private LayerMask deathLayer;
-    [SerializeField] private float deathDelay = 1f;
+    [SerializeField]
+    private LayerMask deathLayer;
+
+    [SerializeField]
+    private float deathDelay = 1f;
 
     private Animator animator;
     private bool isDead;
@@ -40,7 +43,8 @@ public class PlayerDeath : MonoBehaviour
 
     private void Die()
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         isDead = true;
 

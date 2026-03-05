@@ -7,25 +7,47 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float gravityScale = 2.5f;
+    [SerializeField]
+    private float moveSpeed = 5f;
+
+    [SerializeField]
+    private float gravityScale = 2.5f;
 
     [Header("Jumping")]
-    [SerializeField] private float jumpForce = 10f;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float groundCheckDistance = 0.1f;
+    [SerializeField]
+    private float jumpForce = 10f;
+
+    [SerializeField]
+    private LayerMask groundLayer;
+
+    [SerializeField]
+    private float groundCheckDistance = 0.1f;
 
     [Header("Wall Jump")]
-    [SerializeField] private float wallCheckDistance = 0.1f;
-    [SerializeField] private float wallSlideSpeed = 4f;
-    [SerializeField] private float wallJumpForceX = 8f;
-    [SerializeField] private float wallJumpForceY = 12f;
-    [SerializeField] private float wallJumpLockTime = 1.5f;
+    [SerializeField]
+    private float wallCheckDistance = 0.1f;
+
+    [SerializeField]
+    private float wallSlideSpeed = 4f;
+
+    [SerializeField]
+    private float wallJumpForceX = 8f;
+
+    [SerializeField]
+    private float wallJumpForceY = 12f;
+
+    [SerializeField]
+    private float wallJumpLockTime = 1.5f;
 
     [Header("Dash")]
-    [SerializeField] private float dashSpeed = 18f;
-    [SerializeField] private float dashDuration = 0.15f;
-    [SerializeField] private float dashCooldown = 3f;
+    [SerializeField]
+    private float dashSpeed = 18f;
+
+    [SerializeField]
+    private float dashDuration = 0.15f;
+
+    [SerializeField]
+    private float dashCooldown = 3f;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -66,7 +88,10 @@ public class CharacterMovement : MonoBehaviour
             if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
                 moveInputX += 1f;
 
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame)
+            if (
+                Keyboard.current.spaceKey.wasPressedThisFrame
+                || Keyboard.current.upArrowKey.wasPressedThisFrame
+            )
                 jumpQueued = true;
         }
     }
@@ -114,8 +139,9 @@ public class CharacterMovement : MonoBehaviour
          * The player is pushing into the wall if either (a) the player is moving right and the wall is on the right, or (b) if the player is moving left and the wall is on the left.
          * If the player is touching the wall, isn't grounded, is pushing into the wall, and the wall jump lock timer has ended, then the player is wall sliding.
          */
-        bool pushingIntoWall = (moveInputX > 0.1f && wallDirection == 1)
-                            || (moveInputX < -0.1f && wallDirection == -1);
+        bool pushingIntoWall =
+            (moveInputX > 0.1f && wallDirection == 1)
+            || (moveInputX < -0.1f && wallDirection == -1);
         isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall && wallJumpLockTimer <= 0f;
 
         if (wallJumpLockTimer > 0f)
@@ -130,7 +156,8 @@ public class CharacterMovement : MonoBehaviour
             float targetVelocity = moveInputX * moveSpeed;
             horizontalVelocity = Mathf.Lerp(targetVelocity, rb.linearVelocity.x, T);
         }
-        else horizontalVelocity = moveInputX * moveSpeed;
+        else
+            horizontalVelocity = moveInputX * moveSpeed;
 
         Vector2 velocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
 
@@ -144,7 +171,8 @@ public class CharacterMovement : MonoBehaviour
             rb.gravityScale = 0f;
             velocity.y = -wallSlideSpeed;
         }
-        else rb.gravityScale = gravityScale;
+        else
+            rb.gravityScale = gravityScale;
 
         animator.SetFloat("Speed", Mathf.Abs(moveInputX));
         animator.SetFloat("Direction", lastDirection);
@@ -192,7 +220,8 @@ public class CharacterMovement : MonoBehaviour
                 dashExitTimer = dashDuration * (dashSpeed / moveSpeed);
                 dashExitStartVelocity = dashDirection * dashSpeed;
             }
-            else velocity = dashDirection * dashSpeed;
+            else
+                velocity = dashDirection * dashSpeed;
         }
 
         // This block is basically for the smooth dash stop
@@ -204,7 +233,8 @@ public class CharacterMovement : MonoBehaviour
         }
 
         jumpQueued = false;
-        if (!isDashing) animator.ResetTrigger("Dash");
+        if (!isDashing)
+            animator.ResetTrigger("Dash");
         rb.linearVelocity = velocity;
     }
 }

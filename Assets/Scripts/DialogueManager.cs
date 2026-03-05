@@ -1,13 +1,14 @@
 using System.Collections;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [SerializeField] private float typingSpeed = 0.05f;
+    [SerializeField]
+    private float typingSpeed = 0.05f;
 
     private TMP_Text dialogueText;
 
@@ -33,7 +34,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(string[] lines)
     {
         // TODO: allow replacing last dialogue
-        if (isDialogueActive) return;
+        if (isDialogueActive)
+            return;
 
         currentLines = lines;
         currentLineIndex = 0;
@@ -45,14 +47,17 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isDialogueActive) return;
+        if (!isDialogueActive)
+            return;
 
         bool advancePressed = Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame;
 
         if (advancePressed)
         {
-            if (isTyping) FinishTyping();
-            else AdvanceLine();
+            if (isTyping)
+                FinishTyping();
+            else
+                AdvanceLine();
         }
     }
 
@@ -93,7 +98,8 @@ public class DialogueManager : MonoBehaviour
 
         if (currentLineIndex < currentLines.Length)
             ShowCurrentLine();
-        else EndDialogue();
+        else
+            EndDialogue();
     }
 
     private void EndDialogue()

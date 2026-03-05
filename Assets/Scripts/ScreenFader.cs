@@ -1,14 +1,17 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScreenFader : MonoBehaviour
 {
     public static ScreenFader Instance { get; private set; }
 
-    [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField]
+    private Image fadeImage;
+
+    [SerializeField]
+    private float fadeDuration = 0.5f;
 
     private void Awake()
     {

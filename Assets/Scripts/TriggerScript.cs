@@ -3,10 +3,12 @@ using UnityEngine.Events;
 
 public class TriggerScript : MonoBehaviour
 {
-    [SerializeField] private string targetTag = "Player";
+    [SerializeField]
+    private string targetTag = "Player";
 
     [TextArea]
-    [SerializeField] private string[] dialogueLines;
+    [SerializeField]
+    private string[] dialogueLines;
 
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
