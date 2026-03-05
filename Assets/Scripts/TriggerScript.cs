@@ -4,6 +4,9 @@ using UnityEngine.Events;
 public class TriggerScript : MonoBehaviour
 {
     [SerializeField]
+    private bool oneShot = false;
+
+    [SerializeField]
     private string targetTag = "Player";
 
     [TextArea]
@@ -13,8 +16,14 @@ public class TriggerScript : MonoBehaviour
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
 
+    private bool hasTriggered = false;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (oneShot && hasTriggered)
+            return;
+
+        hasTriggered = true;
         if (other.CompareTag(targetTag))
         {
             if (dialogueLines != null && dialogueLines.Length > 0)

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2a40f3c6a004c9dae85a6b324b8b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerScript
+  oneShot: 1
   targetTag: Player
   dialogueLines: []
   onTriggerEnter:

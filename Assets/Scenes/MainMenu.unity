@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0587afadfa5653b4c8663b0a8c43199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  sceneName: Level 1
+  sceneName: Level1
 --- !u!4 &487825964
 Transform:
   m_ObjectHideFlags: 0

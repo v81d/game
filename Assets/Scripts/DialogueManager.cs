@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     private TMP_Text dialogueText;
 
+    private Queue<string[]> dialogueQueue = new Queue<string[]>();
     private string[] currentLines;
     private int currentLineIndex;
     private bool isTyping;
@@ -31,16 +33,26 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void StartDialogue(string[] lines)
+    private void BeginDialogue(string[] lines)
     {
-        isDialogueActive = false;
-
         currentLines = lines;
         currentLineIndex = 0;
         isDialogueActive = true;
 
         gameObject.SetActive(true);
         ShowCurrentLine();
+    }
+
+    public void StartDialogue(string[] lines)
+    {
+        // Queue the next dialogue if there is already one running
+        if (isDialogueActive || isTyping)
+        {
+            dialogueQueue.Enqueue(lines);
+            return;
+        }
+
+        BeginDialogue(lines);
     }
 
     private void Update()
@@ -79,6 +91,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
+
+        if (currentLineIndex >= currentLines.Length - 1)
+        {
+            yield return new WaitForSeconds(2f);
+            EndDialogue();
+        }
     }
 
     public void FinishTyping()
@@ -104,6 +122,11 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         gameObject.SetActive(false);
+
+        if (dialogueQueue.Count > 0)
+        {
+            BeginDialogue(dialogueQueue.Dequeue());
+        }
     }
 
     public bool IsDialogueActive() => isDialogueActive;

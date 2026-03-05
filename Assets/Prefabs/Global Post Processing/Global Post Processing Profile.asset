@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5314939910405583248
+--- !u!114 &-3613957010251273131
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.5
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
@@ -41,4 +41,4 @@ MonoBehaviour:
   m_Name: Global Post Processing Profile
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
-  - {fileID: -5314939910405583248}
+  - {fileID: -3613957010251273131}
