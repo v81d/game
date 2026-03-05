@@ -157,6 +157,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 // Since the player is on the ground, just jump normally
                 velocity.y = jumpForce;
+                wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
             }
             else if (isTouchingWall && !isGrounded)
