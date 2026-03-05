@@ -1,15 +1,20 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
-public class TMPPointerEffects : MonoBehaviour,
-    IPointerEnterHandler,
-    IPointerExitHandler,
-    IPointerDownHandler,
-    IPointerUpHandler
+[RequireComponent(typeof(TMP_Text))]
+public class TMPPointerEffects
+    : MonoBehaviour,
+        IPointerEnterHandler,
+        IPointerExitHandler,
+        IPointerDownHandler,
+        IPointerUpHandler
 {
-    [SerializeField] private Color hoverColor;
-    [SerializeField] private Color activeColor;
+    [SerializeField]
+    private Color hoverColor;
+
+    [SerializeField]
+    private Color activeColor;
 
     private TMP_Text tmpText;
     private Color startingColor;

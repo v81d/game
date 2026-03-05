@@ -1,18 +1,17 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-/// <summary>
-/// Singleton that persists across scenes and provides fade-to-black / fade-from-black transitions.
-/// Attach this to a Canvas with a full-screen black Image child.
-/// </summary>
 public class ScreenFader : MonoBehaviour
 {
     public static ScreenFader Instance { get; private set; }
 
-    [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField]
+    private Image fadeImage;
+
+    [SerializeField]
+    private float fadeDuration = 0.5f;
 
     private void Awake()
     {
@@ -25,7 +24,6 @@ public class ScreenFader : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Start fully transparent
         SetAlpha(0f);
     }
 
@@ -39,17 +37,11 @@ public class ScreenFader : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    /// <summary>
-    /// Automatically fade in (from black) whenever a new scene finishes loading.
-    /// </summary>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(FadeIn());
     }
 
-    /// <summary>
-    /// Call this to fade out to black, load a scene, then fade back in.
-    /// </summary>
     public void FadeToScene(string sceneName)
     {
         StartCoroutine(FadeOutAndLoad(sceneName));
@@ -59,7 +51,6 @@ public class ScreenFader : MonoBehaviour
     {
         // Fade to black
         yield return StartCoroutine(FadeOut());
-        // Load the new scene (fade-in happens automatically via OnSceneLoaded)
         SceneManager.LoadScene(sceneName);
     }
 

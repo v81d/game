@@ -179,11 +179,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheckDistance: 0.1
-  wallCheckDistance: 0.3
-  wallSlideSpeed: 5
-  wallJumpForceX: 4
-  wallJumpForceY: 10
-  wallJumpLockTime: 0.2
+  wallCheckDistance: 0.1
+  wallSlideSpeed: 4
+  wallJumpForceX: 8
+  wallJumpForceY: 12
+  wallJumpLockTime: 1.5
   dashSpeed: 18
   dashDuration: 0.15
   dashCooldown: 3

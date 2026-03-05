@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class ParallaxEffect : MonoBehaviour
@@ -26,7 +26,8 @@ public class ParallaxEffect : MonoBehaviour
         float offsetX = (mousePos.x - Screen.width / 2f) / (Screen.width / 2f);
         float offsetY = (mousePos.y - Screen.height / 2f) / (Screen.height / 2f);
 
-        Vector2 targetPosition = startPosition + new Vector2(offsetX * offsetMultiplier, offsetY * offsetMultiplier);
+        Vector2 targetPosition =
+            startPosition + new Vector2(offsetX * offsetMultiplier, offsetY * offsetMultiplier);
 
         float halfWidth = rectTransform.rect.width * rectTransform.lossyScale.x / 2f;
         float halfHeight = rectTransform.rect.height * rectTransform.lossyScale.y / 2f;
@@ -35,8 +36,16 @@ public class ParallaxEffect : MonoBehaviour
         float clampX = Mathf.Max(halfWidth - Screen.width / 2f, 0);
         float clampY = Mathf.Max(halfHeight - Screen.height / 2f, 0);
 
-        targetPosition.x = Mathf.Clamp(targetPosition.x, startPosition.x - clampX, startPosition.x + clampX);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, startPosition.y - clampY, startPosition.y + clampY);
+        targetPosition.x = Mathf.Clamp(
+            targetPosition.x,
+            startPosition.x - clampX,
+            startPosition.x + clampX
+        );
+        targetPosition.y = Mathf.Clamp(
+            targetPosition.y,
+            startPosition.y - clampY,
+            startPosition.y + clampY
+        );
 
         rectTransform.anchoredPosition = Vector2.SmoothDamp(
             rectTransform.anchoredPosition,
