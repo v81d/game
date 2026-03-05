@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.2" name="CaveG" tilewidth="32" tileheight="32" tilecount="576" columns="32">
- <image source="../Sprites/CaveSprites/CaveG.png" width="1024" height="576"/>
+ <image source="../../Sprites/CaveSprites/CaveG.png" width="1024" height="576"/>
  <tile id="1">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="32" height="32"/>
