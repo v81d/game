@@ -129,6 +129,9 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
 
         dialogueText.text = currentLines[currentLineIndex].dialogue;
+        dialogueHint.text = string.IsNullOrEmpty(currentLines[currentLineIndex].hint)
+            ? defaultHint
+            : currentLines[currentLineIndex].hint;
         isTyping = false;
     }
 
