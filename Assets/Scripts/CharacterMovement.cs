@@ -12,6 +12,15 @@ public class CharacterMovement : MonoBehaviour
     private float moveSpeed = 5f;
 
     [SerializeField]
+    private float rotationSpeed = 10f;
+
+    [SerializeField]
+    private float slopeCheckDistance = 0.5f;
+
+    [SerializeField]
+    private float slopeSlideSpeed = 1f;
+
+    [SerializeField]
     private float gravityScale = 2.5f;
 
     [Header("Jumping")]
@@ -62,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
 
     private float moveInputX;
     private float lastDirection = 1f;
+    private Vector2 slopeNormal = Vector2.up;
     private bool jumpQueued;
     private bool isTouchingWall;
     private bool isWallSliding;
@@ -103,26 +113,6 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    // This method checks whether or not the player is touching a wall on either side
-    private bool CheckWall(Vector2 direction)
-    {
-        Bounds bounds = col.bounds;
-        float inset = bounds.extents.y * 0.1f;
-
-        /* One raycast could work fundamentally, but using three raycasts is more precise.
-         * This is because a single ray from the center can miss a wall if the player only partially overlaps it (for example, at a ledge corner).
-         */
-        Vector2 top = new Vector2(bounds.center.x, bounds.max.y - inset);
-        Vector2 center = new Vector2(bounds.center.x, bounds.center.y);
-        Vector2 bottom = new Vector2(bounds.center.x, bounds.min.y + inset);
-
-        float dist = bounds.extents.x + wallCheckDistance;
-
-        return Physics2D.Raycast(top, direction, dist, groundLayer)
-            || Physics2D.Raycast(center, direction, dist, groundLayer)
-            || Physics2D.Raycast(bottom, direction, dist, groundLayer);
-    }
-
     private void FixedUpdate()
     {
         // A cooldown for dashing
@@ -147,6 +137,8 @@ public class CharacterMovement : MonoBehaviour
             col.bounds.extents.y + groundCheckDistance,
             groundLayer
         );
+
+        AlignWithSurface();
 
         bool touchingRight = CheckWall(Vector2.right);
         bool touchingLeft = CheckWall(Vector2.left);
@@ -178,7 +170,21 @@ public class CharacterMovement : MonoBehaviour
         else
             horizontalVelocity = moveInputX * moveSpeed;
 
-        Vector2 velocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+        /* Well, isn't this great!
+         * Hardcoding `0.1f` here because I doubt the slope distance threshold would ever change in this case.
+         * Probably not the best practice, but if anything goes wrong I'll know why!
+         */
+        bool isOnSlope = isGrounded && Mathf.Abs(slopeNormal.x) > 0.1f;
+        Vector2 velocity = isOnSlope
+            ? new Vector2(slopeNormal.y, -slopeNormal.x) * (moveInputX * moveSpeed) // vector points up the slope
+            : new Vector2(horizontalVelocity, rb.linearVelocity.y); // vector goes horizontally
+
+        // Slide down slope
+        if (isOnSlope && moveInputX == 0f)
+        {
+            float slideDir = Mathf.Sign(slopeNormal.x); // downhill
+            velocity += new Vector2(slopeNormal.y, -slopeNormal.x) * (slideDir * slopeSlideSpeed);
+        }
 
         if (moveInputX > 0)
             lastDirection = 1f;
@@ -255,5 +261,61 @@ public class CharacterMovement : MonoBehaviour
         if (!isDashing)
             animator.ResetTrigger("Dash");
         rb.linearVelocity = velocity;
+    }
+
+    private void AlignWithSurface()
+    {
+        Vector2 rayOrigin = new Vector2(col.bounds.center.x, col.bounds.min.y + 0.05f); // bottom of collider
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            rayOrigin,
+            Vector2.down,
+            slopeCheckDistance,
+            groundLayer
+        );
+        slopeNormal = hit.collider != null ? hit.normal : Vector2.up; // perpendicular
+
+        if (hit.collider != null)
+        {
+            float angle = Mathf.Atan2(slopeNormal.y, slopeNormal.x) * Mathf.Rad2Deg - 90f; // angle of rotation
+
+            float smoothAngle = Mathf.LerpAngle(
+                transform.eulerAngles.z,
+                angle,
+                rotationSpeed * Time.fixedDeltaTime
+            );
+            transform.rotation = Quaternion.Euler(0, 0, smoothAngle);
+        }
+        else
+        {
+            float smoothAngle = Mathf.LerpAngle(
+                transform.eulerAngles.z,
+                0f,
+                rotationSpeed * Time.fixedDeltaTime
+            );
+            transform.rotation = Quaternion.Euler(0, 0, smoothAngle);
+        }
+    }
+
+    private bool IsWall(RaycastHit2D hit) => hit.collider && Mathf.Abs(hit.normal.y) < 0.5f; // if the wall is mostly pointing sideways
+
+    // This method checks whether or not the player is touching a wall on either side
+    private bool CheckWall(Vector2 direction)
+    {
+        Bounds bounds = col.bounds;
+        float inset = bounds.extents.y * 0.1f;
+
+        /* One raycast could work fundamentally, but using three raycasts is more precise.
+         * This is because a single ray from the center can miss a wall if the player only partially overlaps it (for example, at a ledge corner).
+         */
+        Vector2 top = new Vector2(bounds.center.x, bounds.max.y - inset);
+        Vector2 center = new Vector2(bounds.center.x, bounds.center.y);
+        Vector2 bottom = new Vector2(bounds.center.x, bounds.min.y + inset);
+
+        float dist = bounds.extents.x + wallCheckDistance;
+
+        return IsWall(Physics2D.Raycast(top, direction, dist, groundLayer))
+            || IsWall(Physics2D.Raycast(center, direction, dist, groundLayer))
+            || IsWall(Physics2D.Raycast(bottom, direction, dist, groundLayer));
     }
 }

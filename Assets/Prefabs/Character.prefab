@@ -459,6 +459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   moveSpeed: 5
+  rotationSpeed: 10
+  slopeCheckDistance: 0.5
+  slopeSlideSpeed: 1
   gravityScale: 2.5
   jumpForce: 10
   groundLayer:
