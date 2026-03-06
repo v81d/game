@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -48,6 +49,12 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField]
     private float dashCooldown = 3f;
+
+    [SerializeField]
+    private Image dashIndicatorOverlay;
+
+    [SerializeField]
+    private Image dashIndicatorUnderlay;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -120,7 +127,19 @@ public class CharacterMovement : MonoBehaviour
     {
         // A cooldown for dashing
         if (dashCooldownTimer > 0f)
+        {
             dashCooldownTimer -= Time.fixedDeltaTime;
+
+            dashIndicatorOverlay.enabled = true;
+            dashIndicatorUnderlay.enabled = true;
+
+            dashIndicatorOverlay.fillAmount = dashCooldownTimer / dashCooldown;
+        }
+        else
+        {
+            dashIndicatorOverlay.enabled = false;
+            dashIndicatorUnderlay.enabled = false;
+        }
 
         bool isGrounded = Physics2D.Raycast(
             col.bounds.center,
