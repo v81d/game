@@ -182,8 +182,8 @@ MonoBehaviour:
   wallCheckDistance: 0.1
   wallSlideSpeed: 4
   wallJumpForceX: 8
-  wallJumpForceY: 12
-  wallJumpLockTime: 1.5
+  wallJumpForceY: 10
+  wallJumpLockTime: 1
   dashSpeed: 18
   dashDuration: 0.15
   dashCooldown: 3

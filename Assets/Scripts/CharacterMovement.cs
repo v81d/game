@@ -34,10 +34,10 @@ public class CharacterMovement : MonoBehaviour
     private float wallJumpForceX = 8f;
 
     [SerializeField]
-    private float wallJumpForceY = 12f;
+    private float wallJumpForceY = 10f;
 
     [SerializeField]
-    private float wallJumpLockTime = 1.5f;
+    private float wallJumpLockTime = 1f;
 
     [Header("Dash")]
     [SerializeField]
@@ -142,7 +142,7 @@ public class CharacterMovement : MonoBehaviour
         bool pushingIntoWall =
             (moveInputX > 0.1f && wallDirection == 1)
             || (moveInputX < -0.1f && wallDirection == -1);
-        isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall && wallJumpLockTimer <= 0f;
+        isWallSliding = isTouchingWall && !isGrounded && pushingIntoWall;
 
         if (wallJumpLockTimer > 0f)
             wallJumpLockTimer -= Time.fixedDeltaTime;
