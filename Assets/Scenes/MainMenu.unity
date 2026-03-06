@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 487825964}
   - component: {fileID: 487825963}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 552487132}
   - component: {fileID: 552487136}
   m_Layer: 5
-  m_Name: SceneTransitionCanvas
+  m_Name: Scene Transition Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 737399861}
   - component: {fileID: 737399860}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
