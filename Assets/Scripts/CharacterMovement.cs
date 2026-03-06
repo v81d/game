@@ -18,7 +18,7 @@ public class CharacterMovement : MonoBehaviour
     private float slopeCheckDistance = 0.5f;
 
     [SerializeField]
-    private float slopeSlideSpeed = 1f;
+    private float slopeSlideSpeed = 1.5f;
 
     [SerializeField]
     private float gravityScale = 2.5f;
@@ -71,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
 
     private float moveInputX;
     private float lastDirection = 1f;
+    private float slopeSlideTime;
     private Vector2 slopeNormal = Vector2.up;
     private bool jumpQueued;
     private bool isTouchingWall;
@@ -182,8 +183,14 @@ public class CharacterMovement : MonoBehaviour
         // Slide down slope
         if (isOnSlope && moveInputX == 0f)
         {
-            float slideDir = Mathf.Sign(slopeNormal.x); // downhill
-            velocity += new Vector2(slopeNormal.y, -slopeNormal.x) * (slideDir * slopeSlideSpeed);
+            slopeSlideTime += Time.fixedDeltaTime;
+            float slideDir = Mathf.Sign(slopeNormal.x);
+            float acceleratedSpeed = slopeSlideSpeed * (1f + slopeSlideTime * slopeSlideTime);
+            velocity += new Vector2(slopeNormal.y, -slopeNormal.x) * (slideDir * acceleratedSpeed);
+        }
+        else
+        {
+            slopeSlideTime = 0f;
         }
 
         if (moveInputX > 0)
