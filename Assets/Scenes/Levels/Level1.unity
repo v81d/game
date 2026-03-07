@@ -3459,8 +3459,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8840497606405015999, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+      propertyPath: dashAllowed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840497606405015999, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
       propertyPath: slopeSlideSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840497606405015999, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
+      propertyPath: wallJumpsAllowed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8840497606405015999, guid: 9b5ce589884007c67a4c083391fcf952, type: 3}
       propertyPath: slopeSlideModifier

@@ -35,6 +35,9 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Wall Jump")]
     [SerializeField]
+    private bool wallJumpsAllowed = true;
+
+    [SerializeField]
     private float wallCheckDistance = 0.1f;
 
     [SerializeField]
@@ -50,6 +53,9 @@ public class CharacterMovement : MonoBehaviour
     private float wallJumpLockTime = 1f;
 
     [Header("Dash")]
+    [SerializeField]
+    private bool dashAllowed = true;
+
     [SerializeField]
     private float dashSpeed = 18f;
 
@@ -220,7 +226,7 @@ public class CharacterMovement : MonoBehaviour
                 wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
             }
-            else if (isTouchingWall && !isGrounded)
+            else if (wallJumpsAllowed && isTouchingWall && !isGrounded)
             {
                 // If the player is on the wall, do a wall hop
                 velocity.x = -wallDirection * wallJumpForceX;
@@ -228,7 +234,7 @@ public class CharacterMovement : MonoBehaviour
                 wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
             }
-            else if (!isGrounded && !isDashing && dashCooldownTimer <= 0f)
+            else if (dashAllowed && !isGrounded && !isDashing && dashCooldownTimer <= 0f)
             {
                 // Dash through the air
                 isDashing = true;
