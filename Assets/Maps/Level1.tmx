@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="84" height="34" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="1">
  <tileset firstgid="1" source="Tilesets/CaveG.tsx"/>
- <layer id="1" name="Tile Layer 1" width="84" height="34">
+ <layer id="1" name="Foreground Layer" width="84" height="34">
   <properties>
    <property name="unity:sortingLayer" value="Ground"/>
   </properties>
