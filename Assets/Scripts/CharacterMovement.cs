@@ -234,7 +234,7 @@ public class CharacterMovement : MonoBehaviour
                 wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
             }
-            else if (wallJumpAllowed && isTouchingWall && !isGrounded)
+            else if (wallJumpAllowed && isTouchingWall)
             {
                 // If the player is on the wall, do a wall hop
                 velocity.x = -wallDirection * wallJumpForceX;
@@ -242,7 +242,7 @@ public class CharacterMovement : MonoBehaviour
                 wallJumpLockTimer = wallJumpLockTime;
                 animator.SetTrigger("Jump");
             }
-            else if (dashAllowed && !isGrounded && !isDashing && dashCooldownTimer <= 0f)
+            else if (dashAllowed && !isDashing && dashCooldownTimer <= 0f)
             {
                 // Dash through the air
                 isDashing = true;
