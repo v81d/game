@@ -1662,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5292085801183431350, guid: 6448f7a4d599e6c328d1b2641c2b70e9, type: 3}
       propertyPath: m_Name
-      value: Background
+      value: SimpleCaves Background
       objectReference: {fileID: 0}
     - target: {fileID: 5569273613892840281, guid: 6448f7a4d599e6c328d1b2641c2b70e9, type: 3}
       propertyPath: m_UVRect.height

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4958962063850114198}
   - component: {fileID: 4874402307065918109}
   m_Layer: 5
-  m_Name: Background Image 2
+  m_Name: Background Layer 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1355164709483431718}
   - component: {fileID: 7149936752993562067}
   m_Layer: 5
-  m_Name: Background Image 4
+  m_Name: Background Layer 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 5619212433867756165}
   - component: {fileID: 4229090192314935414}
   m_Layer: 5
-  m_Name: Background Image 3
+  m_Name: Background Layer 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 4249475924420305014}
   - component: {fileID: 1700443501381030220}
   m_Layer: 5
-  m_Name: Background
+  m_Name: SimpleCaves Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 122062726336082386}
   - component: {fileID: 5569273613892840281}
   m_Layer: 5
-  m_Name: Background Image 1
+  m_Name: Background Layer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
