@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5292085801183431350, guid: 6448f7a4d599e6c328d1b2641c2b70e9, type: 3}
       propertyPath: m_Name
-      value: Background
+      value: SimpleCaves Background
       objectReference: {fileID: 0}
     - target: {fileID: 5569273613892840281, guid: 6448f7a4d599e6c328d1b2641c2b70e9, type: 3}
       propertyPath: m_UVRect.x
@@ -2056,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: dialogueLines.Array.data[5].dialogue
-      value: Since anything wet has fell so deep.
+      value: Since anything wet has fallen so deep.
       objectReference: {fileID: 0}
     - target: {fileID: 1317100978998197740, guid: 97e88e93d0be8446ca55570b8de282a4, type: 3}
       propertyPath: dialogueLines.Array.data[6].dialogue
